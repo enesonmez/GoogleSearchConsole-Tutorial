@@ -74,8 +74,10 @@ def gsc_by_url(webmasters_service,site,list_of_urls,creds,start_date,end_date=de
         scDict['page'].append(url)
         try:
             for row in response['rows']:
+                print(row)
                 scDict['clicks'].append(row['clicks'] or 0)
                 scDict['impressions'].append(row['impressions'] or 0)
+                scDict['position'].append(row['position'] or 0)
         except Exception as e:
             print(f'An error occurred while extracting {url}: {e}')
     

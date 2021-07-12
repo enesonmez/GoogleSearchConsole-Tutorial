@@ -69,7 +69,7 @@ def get_dates(chosen_date):
     today = datetime.datetime.now()
     days = relativedelta.relativedelta(days=3) # GSC does not permit date earlier than 3 days
     end_date = today - days  
-    if chosen_date is '': 
+    if chosen_date == '': 
         delta = end_date - today.replace(day=1) # Get first day of the month
         start_date = end_date - delta # count difference between end date and first day of the month
     else:

@@ -46,6 +46,13 @@ def authorize_creds(creds):
     flow = client.flow_from_clientsecrets(
         CLIENT_SECRETS_PATH, scope = SCOPES,
         message = tools.message_if_missing(CLIENT_SECRETS_PATH))
+    
+    # Alternative OAuth2 connection: Client_Id and Client_Secrets
+    """
+    flow = client.OAuth2WebServerFlow(client_id='XXXXXXXXXXX.apps.googleusercontent.com',
+                           client_secret='XXXXXXXXXX',
+                           scope=SCOPES)
+    """
 
     # Prepare credentials and authorize HTTP
     # If they exist, get them from the storage object
