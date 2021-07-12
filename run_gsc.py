@@ -17,10 +17,12 @@ jcchouinard.com/what-is-google-search-console-api/
 '''
 
 from dateutil import relativedelta
+import matplotlib.pyplot as plt
 
 from gsc_by_url import gsc_by_url
 from gsc_with_filters import gsc_with_filters
 from gsc_to_csv_by_month import gsc_to_csv
+from gsc_keyword_cannibalization import keyword_cannibalization
 from oauth import authorize_creds, execute_request
 
 site = 'https://www.armine.com'# Property to extract              
@@ -71,3 +73,6 @@ for site_url in verified_sites_urls:
     print(site_url)
 """
 
+# Keyword Cannibalization
+keyword_canni = keyword_cannibalization(webmasters_service,site,start_date,device_category='',rowLimit=1000)
+print(keyword_canni)
